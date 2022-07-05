@@ -6,7 +6,7 @@
 }
 
 .home > *:first-child{
-    margin-top: 280px;
+    margin-top: 240px;
 }
 
 .home > *:nth-child(even){
@@ -17,12 +17,13 @@
     margin-top: 80px;
     background: var(--white);
     width: 100%;
-    min-height: 350px;
+    min-height: 550px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 50px;
 }
 
 .home-box-title{
