@@ -76,6 +76,21 @@
     align-items: center;
 }
 
+.home-box-list-container li{
+    list-style-type: none;
+}
+
+.home-box-list-container li:before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    margin-top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+}
+
 @media (max-width:800px) {
     .home > *:first-child{
         margin-top: 200px;

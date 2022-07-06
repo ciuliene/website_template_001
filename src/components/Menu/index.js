@@ -3,6 +3,7 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 import constants from "../../config/constants";
 import "./style.css";
+import MenuIcon from "../MenuIcon";
 
 class Menu extends Component {
   constructor(props) {
@@ -22,16 +23,18 @@ class Menu extends Component {
 
   componentDidMount = () => {
     window.addEventListener("scroll", () => {
-      const { scrollY } = window;
-      const maxHeight = 100;
-      const minHeight = 35;
-      const maxScroll = 100;
-      let menuHeight =
-        maxHeight + (scrollY * (minHeight - maxHeight)) / maxScroll;
-      if (menuHeight < minHeight) menuHeight = minHeight;
+      const { scrollY, innerWidth } = window;
+      if (innerWidth > 1100) {
+        const maxHeight = 100;
+        const minHeight = 35;
+        const maxScroll = 100;
+        let menuHeight =
+          maxHeight + (scrollY * (minHeight - maxHeight)) / maxScroll;
+        if (menuHeight < minHeight) menuHeight = minHeight;
 
-      // Menu height
-      this.setDocumentProperty("--menu-height", menuHeight + "px");
+        // Menu height
+        this.setDocumentProperty("--menu-height", menuHeight + "px");
+      }
     });
   };
 
@@ -52,14 +55,12 @@ class Menu extends Component {
       <div className="menu">
         <div className="menu-top" />
         <div
-          className={`menu-icon-toggle ${
-            this.state.showMenu ? "menu-icon-toggle-close" : ""
-          }`}
+          className={`menu-icon-toggle`}
           onClick={() => {
             this.setState({ showMenu: !this.state.showMenu });
           }}
         >
-          {!this.state.showMenu ? constants.ICON_MENU : constants.ICON_CLOSE}
+          <MenuIcon menu-state={this.state.showMenu} />
         </div>
         <div className="menu-container" show={this.state.showMenu.toString()}>
           <Link to="/" className="menu-logo">

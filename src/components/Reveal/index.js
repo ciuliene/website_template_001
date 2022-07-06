@@ -4,10 +4,11 @@ import defaultScrolls from "./defaultScrolls";
 
 class Reveal extends Component {
   componentDidMount = () => {
+    if (this.props.disabled) return;
     if (!this.props.scroll || !this.props.id) {
       throw new Error("Scroll props is required");
     } else {
-      let scroll = null;
+      let scroll = {};
       switch (this.props.scroll) {
         case "left":
         case "right":
@@ -20,15 +21,17 @@ class Reveal extends Component {
           break;
       }
 
+      const { innerWidth } = window;
+
+      scroll.distance = innerWidth / 3 + "px";
+
       if (this.props.options) {
         for (let option in this.props.options) {
           scroll[option] = this.props.options[option];
         }
       }
 
-      console.log(scroll);
-
-      if (scroll) {
+      if (scroll && Object.keys(scroll).length > 0) {
         ScrollReveal().reveal("#" + this.props.id, scroll);
       }
     }

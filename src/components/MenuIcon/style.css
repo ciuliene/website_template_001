@@ -1,0 +1,26 @@
+.menu-icon{
+    position: relative;
+    margin-top: 4px;
+    z-index: 1000;
+}
+
+.menu-icon *{
+    width: 24px;
+    height: 4px;
+    background: var(--theme-color);
+    margin: 4px;
+    border-radius: 6px;
+    transition: all 0.3s
+}
+
+.menu-icon[menu-state=true] .bar-top {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-icon[menu-state=true] .bar-center {
+    transform: rotateX(90deg)
+}
+
+.menu-icon[menu-state=true] .bar-bottom {
+    transform: translateY(-6px) rotate(-45deg);
+}
