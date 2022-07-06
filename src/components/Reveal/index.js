@@ -21,10 +21,6 @@ class Reveal extends Component {
           break;
       }
 
-      const { innerWidth } = window;
-
-      scroll.distance = innerWidth / 3 + "px";
-
       if (this.props.options) {
         for (let option in this.props.options) {
           scroll[option] = this.props.options[option];
