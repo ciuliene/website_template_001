@@ -16,6 +16,8 @@ class Menu extends Component {
 
     let nRoutes = routes.filter((x) => x.menu).length;
 
+    this.setDocumentProperty("--n-routes", nRoutes);
+
     let linkWidth = (6 - nRoutes) * 100;
 
     this.setDocumentProperty("--link-width", linkWidth + "px");
