@@ -76,6 +76,7 @@ class Menu extends Component {
                 className="menu-link"
                 onClick={() => {
                   this.setActivePage(i);
+                  this.setState({ showMenu: false });
                 }}
                 active={(currentLocation === route.path).toString()}
               >
