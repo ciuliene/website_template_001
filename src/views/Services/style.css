@@ -73,6 +73,18 @@
     opacity: 1;
 }
 
+.services-close-modal-btn{
+    font-weight: bold;
+    font-size: 22px;
+    transform: rotateX(40deg);
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+}
+
 @media (max-width: 1100px) {
     .services > *:first-child{
         margin-top: 140px;

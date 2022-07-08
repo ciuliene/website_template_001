@@ -27,8 +27,8 @@
 }
 
 .menu-logo{
-    position: absolute;
-    left: 50px;
+    position: fixed;
+    left: 100px;
     top: 10px;
     font-size: 80px;
     color: var(--theme-color);
@@ -144,18 +144,19 @@
 }
 
 @media (max-height: 400px) {
-    .menu-logo{
-        max-height: 10vh;
-        margin-top: 20px;
-        padding: 4px
+    .menu-container{
+        display: flex;
+        transition: all 0.4s;
+    }
+    .menu-container[show=false]{
+        max-width: 0;
     }
 
     .menu-container[show=true]{
-        display: flex;
         max-width: 100vw;
     }
 
-    .menu-container > *{
+    .menu-container .menu-link{
         max-height: 40px;
         max-width: calc(100% / var(--n-routes));
         border-right: 0;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Reveal, { BasicReveal } from "../../components/Reveal";
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import constants from "../../config/constants";
+import servicesData from "./services_data.json";
 import "./style.css";
 
 class Services extends Component {
@@ -8,14 +10,9 @@ class Services extends Component {
     super(props);
 
     this.state = {
-      services: [
-        { name: "Lorem Ipsum", logo: constants.ICON_LOGO },
-        { name: "Dolor Sit", logo: constants.ICON_LOGO },
-        { name: "Amet", logo: constants.ICON_LOGO },
-        { name: "Consectetur", logo: constants.ICON_LOGO },
-        { name: "Adipiscing Elit", logo: constants.ICON_LOGO },
-        { name: "Maecenas Auctor", logo: constants.ICON_LOGO },
-      ],
+      services: servicesData,
+      showModal: false,
+      modalItem: 0,
     };
   }
 
@@ -56,7 +53,14 @@ class Services extends Component {
                 {this.state.services.map((service, i) => {
                   return (
                     <div key={i} id={`service-box-${i}`} className="h3">
-                      <span className="services-item-logo">{service.logo}</span>
+                      <span
+                        className="services-item-logo"
+                        onClick={() => {
+                          this.setState({ showModal: true, modalItem: i });
+                        }}
+                      >
+                        {constants[service.logo]}
+                      </span>
                       <span>{service.name}</span>
                     </div>
                   );
@@ -65,6 +69,29 @@ class Services extends Component {
             </div>
           </Reveal>
         </div>
+        <Modal
+          isOpen={this.state.showModal}
+          toggle={() => this.setState({ showModal: false })}
+          centered
+        >
+          <ModalHeader
+            close={
+              <div
+                className="services-close-modal-btn"
+                onClick={() => this.setState({ showModal: false })}
+              >
+                X
+              </div>
+            }
+          >
+            <div className="h3">
+              {this.state.services[this.state.modalItem].name}
+            </div>
+          </ModalHeader>
+          <ModalBody className="p-5">
+            <div>{this.state.services[this.state.modalItem].content}</div>
+          </ModalBody>
+        </Modal>
       </div>
     );
   }
