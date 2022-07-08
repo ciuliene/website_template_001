@@ -29,7 +29,7 @@
 .menu-logo{
     position: fixed;
     left: 100px;
-    top: 10px;
+    top: 20px;
     font-size: 80px;
     color: var(--theme-color);
     text-decoration: none !important;
@@ -91,7 +91,6 @@
     color: var(--theme-color);
     cursor: pointer;
     z-index: 200;
-    
 }
 
 
@@ -143,11 +142,19 @@
     }
 }
 
-@media (max-height: 400px) {
+@media (max-height: 400px) and (width > 1100px){
+    .menu-container .menu-link{
+        min-height: 40px;
+    }
+}
+
+@media (max-height: 400px) and (width < 1100px){
     .menu-container{
         display: flex;
+        justify-content: flex-start;
         transition: all 0.4s;
     }
+
     .menu-container[show=false]{
         max-width: 0;
     }
@@ -157,8 +164,8 @@
     }
 
     .menu-container .menu-link{
-        max-height: 40px;
-        max-width: calc(100% / var(--n-routes));
+        max-height: 10px;
+        width: calc(100% / var(--n-routes));
         border-right: 0;
         border-bottom: 8px solid #FFFFFF00;
     }
