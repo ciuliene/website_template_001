@@ -17,6 +17,11 @@ class Reveal extends Component {
           scroll = defaultScrolls["sideToPos"];
           scroll.origin = this.props.scroll;
           break;
+        case "zoom-in":
+        case "zoom-out":
+          scroll = defaultScrolls["zoom"];
+          scroll.scale = this.props.scroll === "zoom-in" ? 0.8 : 1.2;
+          break;
         default:
           break;
       }
