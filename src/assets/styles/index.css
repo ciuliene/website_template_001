@@ -1,0 +1,18 @@
+:root{
+    --theme-color: #bb9e47;
+    --background-color: #f6f6f6;
+    --dark:#444;
+    --gray: #777;
+    --light: #aaa;
+    --lighter: #eee;
+    --white: #FFF;
+    
+}
+
+.font-weight-bold{
+    font-weight: bold;
+}
+
+.font-weight-600{
+    font-weight: 600;
+}

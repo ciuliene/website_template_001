@@ -1,0 +1,130 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home > *:first-child{
+    margin-top: 240px;
+}
+
+.home > *:nth-child(even){
+    background: var(--dark);
+}
+
+.home-box{
+    margin-top: 80px;
+    background: var(--white);
+    width: 100%;
+    min-height: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.home-box-title{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--theme-color);
+    font-variant: small-caps;
+    border-bottom: 2px solid var(--gray);
+    width: 50%;
+    margin-top: 20px
+}
+
+.home-box-content{
+    margin: 40px;
+    max-width: 1000px;
+    font-size: 20px;
+}
+
+.home-box-text-image{
+    max-width: 1200px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 40% auto;
+}
+
+.home-box-text-image > *:first-child{
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 10px;
+    background: var(--theme-color);
+}
+
+.home-box-image{
+    height: 100%;
+    background-image: url(../../assets/images/home.webp);
+    background-repeat: repeat;
+    background-position: 20% 60%;
+    border-radius: 0 10px 10px 0;
+}
+
+.home-box-list-text{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 0 100px 0 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-box-list-container li{
+    list-style-type: none;
+}
+
+.home-box-list-container li:before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    margin-top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+}
+
+@media (max-width:1100px) {
+    .home > *:first-child{
+        margin-top: 140px;
+    }
+}
+
+@media (max-width:800px) {
+    .home-box-title{
+        width: 90%;
+    }
+
+    .home-box-content{
+        margin-top: 0
+    }
+
+    .home-box-text-image{
+        grid-template-columns: auto;
+        gap: 20px;
+    }
+
+    .home-box-text-image > *{
+        border-radius: 10px !important;
+    }
+
+    .home-box-image{
+        height: 280px;
+        background-position: 40% 60%;
+    }
+}
+
+@media (max-width: 680px) {
+    .home-box-list-text{
+        flex-direction: column;
+        padding: 0;
+        gap: 10px;
+    }
+}
